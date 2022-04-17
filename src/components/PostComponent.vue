@@ -1,21 +1,53 @@
 <template>
 <div>
-  <h1>Post is here</h1>
+  <h1>Create new book</h1>
   <form @submit="PostData" method="post">
-      <input type="text" name="name"> <br><br>
-      <input type="text" name="author"> <br><br>
+      <input type="text" name="name" placeholder="Book name" v-model="posts.name"> <br><br>
+      <input type="text" name="author" placeholder="Author" v-model="posts.author_id"> <br><br>
       <button type="submit">Create book</button>
   </form>
 </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 name: "PostComponent",
-  data(){},
+  data(){
+    return {
+      posts:{
+        name:null,
+        author_id:null
+      }
+    }
+  },
   methods:{
-      PostData(){
+      PostData(e){
+        // this.axios.post("http://127.0.0.1:8000/api/book",this.posts)
+        // .then((result)=>{
+        //   console.warn(result);
+        // });
 
+          // axios.get("http://127.0.0.1:8000/api/book/6")
+          //     .then((result) => {
+          //       console.log(result)
+          //     });
+        axios
+            .request({
+              url: 'http://127.0.0.1:8000/api/book',
+              method: 'post',
+              data: this.posts,
+              // baseURL: 'https://preview-deliver.kenticocloud.com/PROJECT_ID',
+              headers: {
+                'Authorization': 'Bearer 3|qM4eHiaCWlsnw9WrHcij475exr7yZedk2w6LOBXi'
+              }
+            })
+            .then(response => {
+              console.log(response)
+            })
+        console.warn(this.posts);
+        e.preventDefault();
     }
 
   }
