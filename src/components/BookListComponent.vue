@@ -10,14 +10,18 @@
         <th>Book name</th>
         <th>Book Author</th>
         <th>View count</th>
+        <th>Show details</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody v-for="(item,index) in items" :key="item.id">
       <tr>
-        <td>{{ index }}</td>
+        <td>{{ index+1 }}</td>
         <td>{{ item.Book_name }}</td>
         <td>{{ item.Book_author }}</td>
         <td>{{ item.view_count }}</td>
+        <td @click="ShowBook(item)" class="action-btn">SHOW</td>
+        <td @click="DeleteBook(item.Book_id)"  class="action-btn">DELETE</td>
       </tr>
     </tbody>
 
@@ -56,8 +60,24 @@ export default {
 
             vm.items = response.data;
           })
-      // console.warn(this.posts);
-      // e.preventDefault();
+    },
+    DeleteBook(id){
+  axios
+      .request({
+        url: 'http://127.0.0.1:8000/api/book/'+id,
+        method: 'delete',
+        // baseURL: 'https://preview-deliver.kenticocloud.com/PROJECT_ID',
+        headers: {
+          'Authorization': 'Bearer 3|qM4eHiaCWlsnw9WrHcij475exr7yZedk2w6LOBXi'
+        }
+      })
+      .then(() => {
+        this.getBookList();
+      })
+    },
+    ShowBook(book){
+      this.$root.current= 'ShowBookComponent';
+      this.$root.bookData = book
     }
 
   },mounted(){
@@ -78,5 +98,8 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
+.action-btn{
+  cursor: pointer;
 }
 </style>

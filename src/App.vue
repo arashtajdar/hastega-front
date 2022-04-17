@@ -12,24 +12,26 @@
       </ul>
     </div>
   </nav>
-  <PostComponent v-if="current==='PostComponent'" msg=""/>
-  <BookListComponent v-if="current==='BookListComponent'" msg=""/>
-  <FooterComponent msg=""/>
+  <PostComponent v-if="current==='PostComponent'"/>
+  <BookListComponent v-if="current==='BookListComponent'" />
+  <ShowBookComponent v-if="current==='ShowBookComponent'" />
+  <FooterComponent />
 </template>
 
 <script>
 import PostComponent from './components/PostComponent.vue'
 import BookListComponent from "@/components/BookListComponent";
 import FooterComponent from "@/components/FooterComponent";
-
+import ShowBookComponent from "@/components/ShowBookComponent";
 export default {
   name: 'App',
   components: {
-    PostComponent,BookListComponent,FooterComponent
+    PostComponent,BookListComponent,FooterComponent,ShowBookComponent
   },
   data(){
     return {
-      current: "PostComponent"
+      current: "PostComponent",
+      bookData: null,
     }
   }
 }
