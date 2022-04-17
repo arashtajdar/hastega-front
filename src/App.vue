@@ -1,15 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <PostComponent msg="Welcome to Your Vue.js App"/>
+  <TopMenuComponent msg=""/>
+  <PostComponent msg=""/>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import PostComponent from './components/PostComponent.vue'
+import TopMenuComponent from "@/components/TopMenuComponent";
 
 export default {
   name: 'App',
   components: {
+    TopMenuComponent,
     PostComponent
   }
 }
