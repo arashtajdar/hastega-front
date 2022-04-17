@@ -24,15 +24,6 @@ name: "PostComponent",
   },
   methods:{
       PostData(e){
-        // this.axios.post("http://127.0.0.1:8000/api/book",this.posts)
-        // .then((result)=>{
-        //   console.warn(result);
-        // });
-
-          // axios.get("http://127.0.0.1:8000/api/book/6")
-          //     .then((result) => {
-          //       console.log(result)
-          //     });
         axios
             .request({
               url: 'http://127.0.0.1:8000/api/book',
