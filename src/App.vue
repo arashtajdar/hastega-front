@@ -14,16 +14,18 @@
   </nav>
   <PostComponent v-if="current==='PostComponent'" msg=""/>
   <BookListComponent v-if="current==='BookListComponent'" msg=""/>
+  <FooterComponent msg=""/>
 </template>
 
 <script>
 import PostComponent from './components/PostComponent.vue'
 import BookListComponent from "@/components/BookListComponent";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   name: 'App',
   components: {
-    PostComponent,BookListComponent
+    PostComponent,BookListComponent,FooterComponent
   },
   data(){
     return {
