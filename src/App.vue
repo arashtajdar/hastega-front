@@ -6,8 +6,8 @@
         <li class="nav-item" :class="{ active: current === 'BookListComponent' }">
           <a class="nav-link" @click="current= 'BookListComponent'" href="#">Books list</a>
         </li>
-        <li class="nav-item" :class="{ active: current === 'PostComponent' }">
-          <a class="nav-link" @click="current= 'PostComponent'" href="#">Add book</a>
+        <li class="nav-item" :class="{ active: current === 'AddBookComponent' }">
+          <a class="nav-link" @click="current= 'AddBookComponent'" href="#">Add book</a>
         </li>
         <li class="nav-item" :class="{ active: current === 'AddAuthorComponent' }">
           <a class="nav-link" @click="current= 'AddAuthorComponent'" href="#">Add author</a>

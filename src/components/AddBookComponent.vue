@@ -16,7 +16,7 @@
 import axios from "axios";
 
 export default {
-name: "PostComponent",
+name: "AddBookComponent",
   data(){
     return {
       posts:{

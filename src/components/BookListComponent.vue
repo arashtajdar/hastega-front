@@ -1,5 +1,5 @@
 <template>
-  <h1>book list</h1>
+  <h1>List of all your books</h1>
   <li >
 
   </li>
@@ -20,8 +20,8 @@
         <td>{{ item.Book_name }}</td>
         <td>{{ item.Book_author }}</td>
         <td>{{ item.view_count }}</td>
-        <td @click="ShowBook(item)" class="action-btn">SHOW</td>
-        <td @click="DeleteBook(item.Book_id)"  class="action-btn">DELETE</td>
+        <td @click="ShowBook(item)" class="action-btn btn-show">SHOW</td>
+        <td @click="DeleteBook(item.Book_id)"  class="action-btn btn-delete">DELETE</td>
       </tr>
     </tbody>
 
@@ -101,5 +101,20 @@ td, th {
 }
 .action-btn{
   cursor: pointer;
+  text-align: center;
+}
+.btn-show {
+  background: #a4eca4;
+}
+.btn-delete {
+  background: #e6adad;
+}
+.btn-show:hover {
+  background: #085108;
+  color: wheat;
+}
+.btn-delete:hover {
+  background: #f93939;
+  color: white;
 }
 </style>
