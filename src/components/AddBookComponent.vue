@@ -78,7 +78,8 @@ name: "AddBookComponent",
             })
     }
 
-  },mounted(){
+  },
+  mounted(){
     this.getAuthors();
   },
 }
