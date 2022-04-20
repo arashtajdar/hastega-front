@@ -1,10 +1,19 @@
 <template>
 <div>Add author</div>
+
 </template>
 
 <script>
+
+
+
+
 export default {
-name: "AddAuthorComponent"
+name: "AddAuthorComponent",
+  data(){
+    return {
+    }
+  },
 }
 </script>
 

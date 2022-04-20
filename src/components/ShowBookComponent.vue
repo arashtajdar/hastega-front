@@ -1,6 +1,6 @@
 <template>
   <h1>Book Details for {{data.Book_name}}</h1>
-  <div @click="dum()">
+  <div>
     Book name : {{data.Book_name}} <br>
     Book author : {{data.Book_author}} <br>
     view count : {{data.view_count}} <br>

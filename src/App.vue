@@ -15,7 +15,7 @@
       </ul>
     </div>
   </nav>
-  <PostComponent v-if="current==='PostComponent'"/>
+  <AddBookComponent v-if="current==='AddBookComponent'"/>
   <BookListComponent v-if="current==='BookListComponent'" />
   <ShowBookComponent v-if="current==='ShowBookComponent'" />
   <AddAuthorComponent v-if="current==='AddAuthorComponent'" />
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import PostComponent from './components/PostComponent.vue'
+import AddBookComponent from './components/AddBookComponent.vue'
 import BookListComponent from "@/components/BookListComponent";
 import FooterComponent from "@/components/FooterComponent";
 import ShowBookComponent from "@/components/ShowBookComponent";
@@ -31,12 +31,14 @@ import AddAuthorComponent from "@/components/AddAuthorComponent";
 export default {
   name: 'App',
   components: {
-    PostComponent,BookListComponent,FooterComponent,ShowBookComponent,AddAuthorComponent
+    AddBookComponent,BookListComponent,FooterComponent,ShowBookComponent,AddAuthorComponent
   },
   data(){
     return {
       current: "BookListComponent",
       bookData: null,
+      baseUrl: "http://127.0.0.1:8000/api/",
+      token: "1|Mnd9MBYSfJ8bPcU9T5oNk18XdPvERNU1l8A8ibgo",
     }
   }
 }

@@ -51,29 +51,29 @@ export default {
           .request({
             url: 'http://127.0.0.1:8000/api/books',
             method: 'get',
-            // baseURL: 'https://preview-deliver.kenticocloud.com/PROJECT_ID',
             headers: {
-              'Authorization': 'Bearer 3|qM4eHiaCWlsnw9WrHcij475exr7yZedk2w6LOBXi'
+              'Authorization': 'Bearer '+this.$root.token
             }
           })
           .then((response) => {
-
             vm.items = response.data;
           })
     },
     DeleteBook(id){
-  axios
-      .request({
-        url: 'http://127.0.0.1:8000/api/book/'+id,
-        method: 'delete',
-        // baseURL: 'https://preview-deliver.kenticocloud.com/PROJECT_ID',
-        headers: {
-          'Authorization': 'Bearer 3|qM4eHiaCWlsnw9WrHcij475exr7yZedk2w6LOBXi'
-        }
-      })
-      .then(() => {
-        this.getBookList();
-      })
+      if(confirm("Do you really want to delete?")){
+        axios
+            .request({
+              url: 'http://127.0.0.1:8000/api/book/'+id,
+              method: 'delete',
+              headers: {
+                'Authorization': 'Bearer '+this.$root.token
+              }
+            })
+            .then(() => {
+              this.getBookList();
+            })
+      }
+
     },
     ShowBook(book){
       this.$root.current= 'ShowBookComponent';
