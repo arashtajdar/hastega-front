@@ -4,6 +4,8 @@
     <input class="st-input" type="text" name="name" placeholder="Author name" v-model="posts.name"> <br><br>
     <button type="submit">Add new author</button>
   </form>
+  <vue-basic-alert ref="alert" :duration="500" :closeIn="3000"/>
+
 </template>
 
 <script>
@@ -12,9 +14,13 @@
 
 
 import axios from "axios";
+import VueBasicAlert from "vue-basic-alert";
 
 export default {
 name: "AddAuthorComponent",
+  components: {
+    VueBasicAlert
+  },
   data(){
     return {
       posts:{
@@ -25,6 +31,7 @@ name: "AddAuthorComponent",
   methods:{
 
     PostData(e){
+      let vm = this;
       axios
           .request({
             url: this.$root.baseUrl+'author',
@@ -35,7 +42,14 @@ name: "AddAuthorComponent",
             }
           })
           .then(response => {
-            console.log(response)
+            console.log(response);
+            vm.$refs.alert.showAlert(
+                'Success',
+                "Author added successfully!",
+                'Success',
+                "Success",
+                'Success'
+            );
           })
       e.preventDefault();
     },
