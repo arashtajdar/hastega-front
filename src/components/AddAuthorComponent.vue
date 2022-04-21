@@ -1,8 +1,8 @@
 <template>
-  <h1>Create new Author</h1>
+  <h1>Create new author</h1>
   <form @submit="PostData" method="post">
     <input class="st-input" type="text" name="name" placeholder="Author name" v-model="posts.name"> <br><br>
-    <button type="submit">Create book</button>
+    <button type="submit">Add new author</button>
   </form>
 </template>
 
@@ -27,7 +27,7 @@ name: "AddAuthorComponent",
     PostData(e){
       axios
           .request({
-            url: 'http://127.0.0.1:8000/api/author',
+            url: this.$root.baseUrl+'author',
             method: 'post',
             data: this.posts,
             headers: {

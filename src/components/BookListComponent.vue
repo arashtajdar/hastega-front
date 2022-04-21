@@ -63,7 +63,7 @@ export default {
       if(confirm("Do you really want to delete?")){
         axios
             .request({
-              url: 'http://127.0.0.1:8000/api/book/'+id,
+              url: this.$root.baseUrl+'book/'+id,
               method: 'delete',
               headers: {
                 'Authorization': 'Bearer '+this.$root.token

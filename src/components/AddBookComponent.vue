@@ -9,14 +9,18 @@
       </select> <br><br>
       <button type="submit">Create book</button>
   </form>
+  <vue-basic-alert ref="alert" :duration="500" :closeIn="3000"/>
 </div>
 </template>
 
 <script>
 import axios from "axios";
-
+import VueBasicAlert from 'vue-basic-alert'
 export default {
 name: "AddBookComponent",
+  components: {
+    VueBasicAlert
+  },
   data(){
     return {
       posts:{
@@ -48,6 +52,7 @@ name: "AddBookComponent",
   methods:{
 
     PostData(e){
+      let vm = this;
       axios
             .request({
               url: 'http://127.0.0.1:8000/api/book',
@@ -58,7 +63,17 @@ name: "AddBookComponent",
               }
             })
             .then(response => {
-              console.log(response)
+              console.log(response);
+              vm.$refs.alert.showAlert(
+                  'Success',
+                  "Book added successfully!",
+                  'Success',
+                  "Success",
+                  'Success'
+              );
+              vm.posts.name = null;
+              vm.posts.author_id = null;
+              vm.authors.prefix = '';
             })
         e.preventDefault();
     },

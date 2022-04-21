@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item" :class="{ active: current === 'BookListComponent' }">
-          <a class="nav-link" @click="current= 'BookListComponent'" href="#">Books list</a>
+          <a class="nav-link" @click="current= 'BookListComponent'" href="#">Book list</a>
         </li>
         <li class="nav-item" :class="{ active: current === 'AddBookComponent' }">
           <a class="nav-link" @click="current= 'AddBookComponent'" href="#">Add book</a>
