@@ -12,12 +12,28 @@
 <script>
 
 // import axios from "axios";
+import axios from "axios";
+
 export default {
   name: "ShowBookComponent",
   data(){
     return {
-      data : this.$root.bookData
+      data : []
     }
+  },mounted() {
+    let vm = this;
+    axios
+        .request({
+          url: this.$root.baseUrl+'book/'+this.$root.bookId,
+          method: 'get',
+          headers: {
+            'Authorization': 'Bearer '+this.$root.token
+          }
+        })
+        .then((response) => {
+          vm.data = response.data;
+          // console.log(vm.data);
+        })
   }
 }
 </script>

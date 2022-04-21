@@ -20,7 +20,7 @@
         <td>{{ item.Book_name }}</td>
         <td>{{ item.Book_author }}</td>
         <td>{{ item.view_count }}</td>
-        <td @click="ShowBook(item)" class="action-btn btn-show">SHOW</td>
+        <td @click="ShowBook(item.Book_id)" class="action-btn btn-show">SHOW</td>
         <td @click="DeleteBook(item.Book_id)"  class="action-btn btn-delete">DELETE</td>
       </tr>
     </tbody>
@@ -75,9 +75,10 @@ export default {
       }
 
     },
-    ShowBook(book){
+    ShowBook(id){
       this.$root.current= 'ShowBookComponent';
-      this.$root.bookData = book
+      this.$root.bookId = id;
+
     }
 
   },mounted(){
